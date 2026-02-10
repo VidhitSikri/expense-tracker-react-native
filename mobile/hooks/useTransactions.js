@@ -1,14 +1,14 @@
 import { Alert } from 'react-native';
 import { useCallback, useState } from 'react';
 
-const API_URL = "http://localhost:5001/api"
+const API_URL = "https://expense-tracker-react-native-c68l.onrender.com/api"
 
 export const useTransactions = (userId) => {
     const [transactions, setTransactions] = useState([]);
     const [summary, setSummary] = useState({
         balance: 0,
         income: 0,
-        expenses: 0
+        expense: 0
     });
 
     const [isLoading, setIsLoading] = useState(true);
@@ -56,7 +56,7 @@ export const useTransactions = (userId) => {
             Alert.alert("Success", "Transaction deleted successfully");
         } catch (error) {
             console.error("Error deleting transaction:", error);
-            Alert.error("Error", "Failed to delete transaction");
+            Alert.alert("Error", "Failed to delete transaction");
         }
     }
 
